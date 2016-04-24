@@ -1,0 +1,95 @@
+﻿@model IEnumerable<MVC_Wardrobe.Models.Tops>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--Inverted color navbar fixed to the top of the home screen-->
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <!-- Split button drop down containing Home action link -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Home</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">@Html.ActionLink("Home Page", "Index", "Home")</a></li>
+            </ul>
+        </div>
+        <!-- Split button drop down containing tops action link -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Tops</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">@Html.ActionLink("View", "Index", "Tops")</a></li>
+            </ul>
+        </div>
+        <!-- Split button dropdown containing bottoms actionlink -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Bottoms</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">@Html.ActionLink("View", "Index", "Bottoms")</a></li>
+            </ul>
+        </div>
+        <!-- Split button dropdown containing shoes actionlink -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Shoes</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">@Html.ActionLink("View", "Index", "Shoes")</a></li>
+            </ul>
+        </div>
+        <!-- Split button dropdown containing accessories actionlink -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Accessories</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">@Html.ActionLink("View", "Index", "Accessories")</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h2>Tops</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+    <!--Thumbnails for the shirts view-->
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="@Html.DisplayFor(modelItem => item.Photo)" alt="picture" style="width:150px;height:150px" /> 
+            <div class="caption">
+                <p>@Html.DisplayFor(modelItem => item.ID)</p>
+                <p>@Html.DisplayFor(modelItem => item.Nickname)</p>
+                <p>@Html.DisplayFor(modelItem => item.Type)</p>
+                <p>@Html.DisplayFor(modelItem => item.Color)</p>
+                <p>@Html.DisplayFor(modelItem => item.Season)</p>
+                <p>@Html.DisplayFor(modelItem => item.Occasion)</p>
+                <p><a href="#" class="btn btn-primary" role="button">@Html.ActionLink("Edit", "Edit", new { id = item.ID })</a></p>
+                <p><a href="#" class="btn btn-primary" role="button">@Html.ActionLink("Details", "Details", new { id = item.ID })</a></p>
+                <p><a href="#" class="btn btn-primary" role="button">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</a></p>
+            </div>
+        </div>
+    </div>
+}
+
+</table>
